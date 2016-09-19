@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LoginExcersize
 {
-    class User : IUser
+    internal class User : IUser
     {
         //Fields
         private string username;
@@ -27,14 +27,23 @@ namespace LoginExcersize
         public string UserName
         {
             get { return username; }
-            set { username = value; }
+            set
+            {
+                NameValidator vali = new NameValidator();
+                username = vali.ValidateAsMail(value);
+            }
         }
 
         
         public string Password
         {
             get { return password; }
-            set { password = value; }
+            set
+            {
+                Hasher hash = new Hasher();
+                if (value.Length < 6) { throw new  ArgumentException("Your password needs to be at least six characters long."); }
+                this.password = hash.HashSHA256((value));
+            }
         }
       
         

@@ -10,19 +10,23 @@ namespace LoginExcersize
     internal class Hasher
     {
 
-        public string HashSHA256(string s)
+        internal string HashSHA256(string s)
         {
-            string hashedstring = "";
-            byte[] bytes = Encoding.UTF8.GetBytes(s);
-            SHA256 hash = SHA256Managed.Create();
+            string outputstring = "";
+            SHA256 hash = SHA256.Create();
 
-            byte[] hashbytes = hash.ComputeHash(bytes);
-            foreach (var item in hashbytes)
+            byte[] inputbytes = Encoding.UTF8.GetBytes(s);            
+            byte[] hashbytes = hash.ComputeHash(inputbytes);
+
+            foreach (byte characterrepresentedasbyte in hashbytes)
             {
-                hashedstring += item.ToString("x2"); 
+                //converts byte to string, written as Hexadecimal. "x2" means "Hexadecimal with two digits."
+                //two digits are enough because four bits equal one digit of hexadecimal. 
+                //2 * 2 * 2 * 2 = 16, as does the count of {1, 2, 3, 4, 5, 6, 7, 8 ,9, 0, a, b, c, d, e, f} 
+                outputstring += characterrepresentedasbyte.ToString("x2"); 
             }
-            return hashedstring;
 
+            return outputstring;
         }
     }
 }
