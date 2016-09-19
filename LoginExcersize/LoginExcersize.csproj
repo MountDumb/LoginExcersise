@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Hasher.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="LoginExcersiseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

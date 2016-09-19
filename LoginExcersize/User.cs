@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Security.Cryptography;
+
 
 namespace LoginExcersize
 {
@@ -21,15 +21,7 @@ namespace LoginExcersize
 
         //Methods
 
-            public string Hasher(string s)
-        {
-            byte[] bytes = Encoding.UTF8.GetBytes(s);
-            SHA256 hash = SHA256Managed.Create();
-
-            byte[] hashedstring = hash.ComputeHash(bytes);
-            return hashedstring.ToString();
-            
-        }
+        
 
         //Properties
         public string UserName
@@ -42,7 +34,7 @@ namespace LoginExcersize
         public string Password
         {
             get { return password; }
-            set { password = Hasher(value); }
+            set { password = value; }
         }
       
         
