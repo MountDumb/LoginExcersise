@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Linq; 
 
 namespace LoginExcersize
 {
@@ -12,8 +11,9 @@ namespace LoginExcersize
         public string ValidateAsMail(string s)
         {
             char[] testarray = s.ToCharArray();
+
             if (!testarray.Contains(';') && !testarray.Contains(' '))
-            {
+            {                
                 for (int i = 0; i < testarray.Length; i++)
                 {
                     if (testarray[i] == '@')
@@ -26,8 +26,8 @@ namespace LoginExcersize
                             }
                         }
                     }
-                    else { throw new Exception("Invalid Email address"); }
-                }
+                    
+                 }
             }            
             throw new Exception("Invalid Email address");
         }
