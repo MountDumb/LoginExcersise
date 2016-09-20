@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace LoginExcersize
 {
-    internal class NameValidator
+    internal class NameValidator: INameValidator
     {
         public string ValidateAsMail(string s)
         {

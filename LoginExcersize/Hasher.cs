@@ -7,10 +7,10 @@ using System.Security.Cryptography;
 
 namespace LoginExcersize
 {
-    internal class Hasher
+    internal class Hasher : IHasher
     {
 
-        internal string HashSHA256(string s)
+        public string HashSHA256(string s)
         {
             string outputstring = "";
             SHA256 hash = SHA256.Create();

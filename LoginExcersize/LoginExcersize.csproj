@@ -51,6 +51,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Hasher.cs" />
+    <Compile Include="IHasher.cs" />
+    <Compile Include="INameValidator.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="LoginExcersiseTests.cs" />
     <Compile Include="NameValidator.cs" />
